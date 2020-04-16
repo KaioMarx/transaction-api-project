@@ -43,9 +43,10 @@ class TransactionsRepository {
     this.transactions.map(trans => {
       if (trans.type === 'income') {
         incomes.push(trans.value);
-      } else {
-        outcomes.push(trans.value);
+        return incomes;
       }
+      outcomes.push(trans.value);
+      return outcomes;
     });
 
     const income = incomes.reduce(getSum, 0);
